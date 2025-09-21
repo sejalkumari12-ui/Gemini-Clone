@@ -18,11 +18,13 @@ const ContextProvider = (props) => {
   };
 
   const onSent = async (prompt) => {
+
     setResultData("");
     setLoading(true);
     setShowResult(true);
     setRecentPrompt(input);
-    
+    setPrevPrompts(prev => [...prev,input])
+
 
     const response = await runChat(input);
     let responeArray = response.split("**");
