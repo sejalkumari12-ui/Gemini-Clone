@@ -171,7 +171,7 @@
   text-align: center;
 }
 
-/* ===== Alternate Result Style ===== */
+
 .result {
   background: linear-gradient(145deg, #ffe4f0, #fff0f5);
   border-radius: 25px;
@@ -190,7 +190,7 @@
   box-shadow: 0 12px 25px rgba(255, 105, 180, 0.35);
 }
 
-/* Result title */
+
 .result-title {
   display: flex;
   align-items: center;
@@ -216,7 +216,7 @@
   margin: 0;
 }
 
-/* Result data (AI response) */
+
 .result-data {
   display: flex;
   align-items: flex-start;
