@@ -13,3 +13,11 @@ Typing animation and pre-loader for smooth UX
 Responsive design for desktop and mobile
 
 Easily extendable for different AI backends
+
+🛠️ Tech Stack
+
+Frontend: React, CSS
+
+AI Integration: Gemini API
+
+Deployment: Vercel
