@@ -118,13 +118,9 @@
 .main-bottom {
   position: fixed;
   bottom: 0;
-  left: 75px; 
-  right: 0;
-  padding: 20px 40px;
-  background: rgba(255, 255, 255, 0.9);
+  left: 250px; 
+  right: 150px;
   backdrop-filter: blur(12px);
-  border-top: 1px solid #ffcce6;
-  box-shadow: 0px -4px 10px rgba(255, 182, 193, 0.3);
 }
 
 .search-box {
@@ -241,7 +237,7 @@
   margin: 0;
 }
 
-/* Loader animation */
+
 .loader {
   display: flex;
   align-items: center;
@@ -276,6 +272,122 @@
   40% {
     transform: scaleY(1);
     opacity: 1;
+  }
+}
+
+@media (max-width: 1024px) {
+  .main-container {
+    padding: 30px 25px;
+  }
+
+  .cards {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+
+  .main-bottom {
+    left: 180px;  
+    right: 20px;
+    padding: 15px 25px;
+  }
+
+  .search-box {
+    padding: 8px 15px;
+    gap: 10px;
+  }
+
+  .search-box input {
+    font-size: 14px;
+  }
+
+  .result {
+    padding: 20px 25px;
+  }
+
+  .result-title p {
+    font-size: 16px;
+  }
+
+  .result-data p {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-container {
+    padding: 25px 20px;
+  }
+
+  .cards {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+  }
+
+  .main-bottom {
+    left: 10px;
+    right: 10px;
+    padding: 12px 20px;
+    border-radius: 20px;
+  }
+
+  .search-box input {
+    font-size: 13px;
+  }
+
+  .result {
+    padding: 18px 20px;
+    max-width: 100%;
+  }
+
+  .result-title p {
+    font-size: 15px;
+  }
+
+  .result-data p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-container {
+    padding: 20px 15px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr; 
+    gap: 12px;
+  }
+
+  .main-bottom {
+    left: 5px;
+    right: 5px;
+    padding: 10px 15px;
+  }
+
+  .search-box input {
+    font-size: 12px;
+  }
+
+  .result {
+    padding: 15px 15px;
+    gap: 15px;
+  }
+
+  .result-title p {
+    font-size: 14px;
+  }
+
+  .result-data p {
+    font-size: 13px;
+  }
+
+  .nav p {
+    font-size: 22px;
+  }
+
+  .nav img {
+    width: 36px;
+    height: 36px;
   }
 }
 

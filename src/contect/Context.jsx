@@ -12,38 +12,52 @@ const ContextProvider = (props) => {
   const [resultData, setResultData] = useState("");
 
   const delayPara = (index, nextWord) => {
-    setTimeout(function() {
-       setResultData(prev => prev+nextWord)
-    },75*index)
+    setTimeout(() => {
+      setResultData((prev) => prev + nextWord);
+    }, 75 * index);
   };
 
-  const onSent = async (prompt) => {
+  const newChat =() =>{
+    setLoading(false)
+    setShowResult(false)
+  }
 
+  const onSent = async (prompt) => {
     setResultData("");
     setLoading(true);
     setShowResult(true);
-    setRecentPrompt(input);
-    setPrevPrompts(prev => [...prev,input])
 
+    let response;
 
-    const response = await runChat(input);
-    let responeArray = response.split("**");
+    if (prompt !== undefined) {
+      response = await runChat(prompt);
+      setRecentPrompt(prompt);
+    } else {
+      setPrevPrompts((prev) => [...prev, input]);
+      setRecentPrompt(input);
+      response = await runChat(input);
+    }
+
+    // Format bold text
+    let responseArray = response.split("**");
     let newResponse = "";
 
-    for (let i = 0; i < responeArray.length; i++) {
+    for (let i = 0; i < responseArray.length; i++) {
       if (i === 0 || i % 2 !== 1) {
-        newResponse += responeArray[i];
+        newResponse += responseArray[i];
       } else {
-        newResponse += "<br>" + responeArray[i] + "</br>";
+        newResponse += "<br>" + responseArray[i] + "</br>";
       }
     }
 
+    // Replace * with <br>
     let newResponse2 = newResponse.split("*").join("</br>");
+
+    // Typing effect word by word
     let newResponseArray = newResponse2.split(" ");
-    for( let i=0 ; i<newResponseArray.length; i++)
-    {
-        const nextWord = newResponseArray[i];
-        delayPara(i,nextWord + " ")
+    for (let i = 0; i < newResponseArray.length; i++) {
+      const nextWord = newResponseArray[i];
+      delayPara(i, nextWord + " ");
     }
 
     setLoading(false);
@@ -61,6 +75,7 @@ const ContextProvider = (props) => {
     showResult,
     loading,
     resultData,
+    newChat
   };
 
   return (
